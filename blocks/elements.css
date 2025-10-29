@@ -1,11 +1,12 @@
 .elements {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 17px;
+  grid-template-columns: repeat(auto-fit, 282px);
+  gap: 20px 17px;
   padding: 0;
   max-width: 880px;
   margin: 0 auto;
   padding-top: 50px;
+  justify-content: center;
 }
 
 .element {
@@ -13,14 +14,13 @@
   height: 361px;
   border-radius: 10px;
   overflow: hidden;
-  background-color: #fff;
-  background-color: transparent;
 }
 
 .element__info {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: #fff;
 }
 
 .element__group-vector {
@@ -49,8 +49,21 @@
 }
 
 .element__rectangle {
-  background-color: white;
   border-radius: 0 0 10px 10px;
+}
+
+@media (max-width: 880px) {
+  .elements {
+    width: 100%;
+  }
+
+  .element__rectangle {
+    width: 100%;
+  }
+
+  .element__image {
+    width: 100%;
+  }
 }
 
 @media (max-width: 320px) {
@@ -58,6 +71,5 @@
     width: 100%;
     padding: 0 19px;
     box-sizing: border-box;
-    justify-content: center;
   }
 }
