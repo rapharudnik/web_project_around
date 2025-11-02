@@ -37,7 +37,7 @@
   border: 2px solid #ffffff;
 }
 
-.profile__info-edit-button {
+.profile__info-edit-button:hover {
   cursor: pointer;
   opacity: 0.6;
 }
