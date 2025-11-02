@@ -7,4 +7,4 @@ Eventos de formulário (submit, click)
 Modais/Pop-ups com abertura e fechamento dinâmicos
 Atualização de conteúdo em tempo real
 
-https://github.com/rapharudnik/web_project_around.git
+https://rapharudnik.github.io/web_project_around/
