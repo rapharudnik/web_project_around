@@ -5,7 +5,7 @@
   max-width: 880px;
   color: #fff;
   margin: 62px 0 0;
-  padding-left: 200px;
+  margin: 0 auto;
 }
 
 .profile__avatar-image {
@@ -21,6 +21,7 @@
   max-width: 415px;
   align-items: center;
   margin-left: 30px;
+  margin: 0 auto;
 }
 
 .profile__name {
@@ -59,7 +60,7 @@
   background-color: black;
   width: 150px;
   height: 50px;
-  margin-left: 165px;
+
   padding: 0;
   border: 2px solid #ffffff;
 }
@@ -85,7 +86,7 @@
   }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 380px) {
   .profile {
     max-width: 100%;
     padding: 0 16px;
