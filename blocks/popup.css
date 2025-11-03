@@ -68,6 +68,13 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 14px;
+  color: #000;
+}
+
+.popup__input:focus {
+  background-color: white;
+  width: 358px;
+  height: 27px;
 }
 
 .field__line {

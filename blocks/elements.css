@@ -31,6 +31,15 @@
   border: 1.5px solid;
 }
 
+.element__group-vector:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.element__group-vector:active {
+  filter: brightness(0);
+}
+
 .element__image {
   max-width: 100%;
   height: 100%;
