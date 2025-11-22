@@ -47,6 +47,7 @@ function handleProfileFormSubmit(evt) {
 
   profileName.textContent = newName;
   profileFunction.textContent = newFunction;
-}
 
-formElement.addEventListener("submit", handleProfileFormSubmit);
+  const popup = document.querySelector(".popup");
+  popup.classList.remove("popup_opened");
+}
