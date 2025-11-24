@@ -16,16 +16,15 @@
 
 .profile__info {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   max-width: 415px;
   align-items: center;
-  margin-left: 30px;
   margin: 0 auto;
+  margin-left: 30px;
 }
 
 .profile__name {
-  max-width: 300px;
   font-size: 42px;
   line-height: 42px;
   color: #ffffff;
@@ -36,10 +35,15 @@
   text-overflow: ellipsis;
 }
 
+.profile__name-button {
+  display: flex;
+}
+
 .profile__info-edit-button {
   background-color: black;
   margin-left: 18px;
   border: 2px solid #ffffff;
+  height: 24px;
 }
 
 .profile__info-edit-button:hover {
@@ -87,6 +91,17 @@
   .profile {
     margin: 0 auto;
     padding: 0;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+  }
+
+  .profile__info {
+    margin: 30px 0 auto;
+  }
+
+  .profile__add-button {
+    margin-top: 36px;
   }
 }
 
@@ -109,6 +124,7 @@
 
   .profile__name {
     font-size: 22px;
+    max-width: 300px;
   }
 
   .profile__info-function {
