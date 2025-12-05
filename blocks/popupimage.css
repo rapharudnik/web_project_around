@@ -1,0 +1,53 @@
+.popup__image {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+}
+
+.popup__image_opened {
+  opacity: 1;
+  visibility: visible;
+}
+
+.popup__image-content {
+  position: relative;
+  max-width: 75vw;
+  max-height: 75vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.popup__image-photo {
+  width: 75vw;
+  height: 75vh;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.popup__image-text {
+  color: white;
+  font-size: 18px;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.popup__close-icon_image {
+  position: absolute;
+  top: -35px;
+  right: -35px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.popup__close-icon_image:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}

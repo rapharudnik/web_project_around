@@ -14,6 +14,7 @@
   height: 361px;
   border-radius: 10px;
   overflow: hidden;
+  position: relative;
 }
 
 .element__info {
@@ -23,26 +24,44 @@
   background-color: #fff;
 }
 
-.element__group-vector {
+.element__like-button {
+  background: url("../images/like.png") center no-repeat;
   color: white;
-  padding-right: 18px;
+  padding-right: 30px;
   width: 21px;
   height: 19px;
-  border: 1.5px solid;
+  border: none;
+  background-size: contain;
+  padding: 0;
 }
 
-.element__group-vector:hover {
+.element__like-button:hover {
   cursor: pointer;
   opacity: 0.6;
 }
 
-.element__group-vector:active {
-  filter: brightness(0);
+.element__like-button_active {
+  background: url("../images/active-like.png") center no-repeat;
+}
+
+.element__trash-button {
+  background: url("../images/Trash.png") center no-repeat;
+  width: 18px;
+  height: 19.3px;
+  position: absolute;
+  top: 18px;
+  right: 15px;
+  border: none;
+}
+
+.element__trash-button:hover {
+  cursor: pointer;
+  opacity: 0.6;
 }
 
 .element__image {
   max-width: 100%;
-  height: 100%;
+  height: 282px;
   display: block;
   object-fit: cover;
   border-radius: 10px 10px 0 0;

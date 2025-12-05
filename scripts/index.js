@@ -52,3 +52,181 @@ function handleProfileFormSubmit(evt) {
 }
 
 formElement.addEventListener("submit", handleProfileFormSubmit);
+
+const initialCards = [
+  {
+    name: "Vale de Yosemite",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_yosemite.jpg",
+  },
+  {
+    name: "Lago Louise",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lake-louise.jpg",
+  },
+  {
+    name: "Montanhas Carecas",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_bald-mountains.jpg",
+  },
+  {
+    name: "Latemar",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_latemar.jpg",
+  },
+  {
+    name: "Parque Nacional da Vanoise ",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_vanoise.jpg",
+  },
+  {
+    name: "Lago di Braies",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lago.jpg",
+  },
+];
+
+// Selecionar os elementos principais (popup new place)
+const addPlace = document.querySelector(".profile__add-button");
+const popupNewplace = document.querySelector(".popup__newplace");
+const closeButtonNewplace = document.querySelector(
+  ".popup__close-icon_newplace"
+);
+
+//função abrir popup
+function openPopupNewplace() {
+  popupNewplace.classList.add("popup__newplace_opened");
+}
+
+// Função para fechar o popup
+function closePopupNewplace() {
+  popupNewplace.classList.remove("popup__newplace_opened");
+}
+
+// Quando clicar no botão add, abre o popup
+addPlace.addEventListener("click", openPopupNewplace);
+
+// Quando clicar no botão fechar, fecha o popup
+closeButtonNewplace.addEventListener("click", closePopupNewplace);
+
+//adicionando um cartão personalizado
+
+//criando constantes para os inputs (imagem e título)
+const titleInput = document.querySelector("#form__input-title");
+const imageInput = document.querySelector("#form__input-image");
+
+// ✅ Selecionar onde os cartões ficam
+const cardsContainer = document.querySelector(".elements");
+
+//Criar uma função para adicionar o novo cartão
+function addNewCard(name, link) {
+  // Aqui você vai criar um novo cartão com os dados do formulário
+  // Use os parâmetros 'name' e 'link' que já chegam na função
+
+  // Criar o elemento do cartão
+  const cardElement = document.createElement("div");
+  cardElement.classList.add("element");
+
+  const imageElement = document.createElement("img");
+
+  console.log(link);
+  console.log(typeof link);
+  // Adicionar o HTML interno
+  cardElement.innerHTML = `
+    <img src="${link}" alt="${name}" class="element__image">
+    <div class="element__info">
+      <h2 class="element__text">${name}</h2>
+      <button class="element__like-button"></button>
+    </div>
+     <button class="element__trash-button"></button>
+  `;
+
+  console.log("Cartão criado:", cardElement.innerHTML);
+
+  // e adicionar ao contêiner
+  const addContainer = document.querySelector(".elements");
+  addContainer.prepend(cardElement); // ← prepend adiciona no início
+}
+
+// Selecionar o formulário de adicionar cartão
+const addNewCardForm = document.querySelector(".popup__newplace");
+const addCardForm = addNewCardForm.querySelector(".form__newplace"); // ← formulário dentro do popup
+
+// Adicionar event listener
+addCardForm.addEventListener("submit", function (evt) {
+  evt.preventDefault(); // ← Impede o envio padrão do formulário
+
+  // Pegar os valores dos inputs
+  const newTitle = titleInput.value;
+  const newImageUrl = imageInput.value;
+
+  // Chamar a função para adicionar o cartão
+  addNewCard(newTitle, newImageUrl);
+
+  // Limpar o formulário
+  addCardForm.reset();
+
+  closePopupNewplace();
+});
+
+//Programe o botão "Curtir" para os cartões:
+
+//selecionar o container pai
+const containers = document.querySelector(".elements");
+
+containers.addEventListener("click", function (evt) {
+  // Verificar se o elemento clicado é um botão de curtir
+  if (evt.target.classList.contains("element__like-button")) {
+    // Aqui você implementa a lógica do curtir
+    evt.target.classList.toggle("element__like-button_active");
+  }
+});
+
+//programar para excluir um cartão
+
+containers.addEventListener("click", (event) => {
+  // 3. Aqui dentro você vai colocar a lógica para excluir o cartão
+  if (event.target.classList.contains("element__trash-button")) {
+    //remover cartão
+    const card = event.target.closest(".element");
+    card.remove();
+  }
+});
+
+//abrindo popup de imagem
+
+//função abrir popup
+function openPopupImage(popup) {
+  popup.classList.add("popup__image_opened");
+}
+
+// Função para fechar o popup
+function closePopupImage(popup) {
+  popup.classList.remove("popup__image_opened");
+}
+
+// Selecionar o popup de imagem
+const imagePopup = document.querySelector(".popup__image");
+//seleciona imagem
+const imageElement = document.querySelector(".popup__image-photo");
+//seleciona imagem
+const textElement = document.querySelector(".popup__image-text");
+//seleciona botão de fechar
+const closeImage = document.querySelector(".popup__close-icon_image");
+
+const images = document.querySelectorAll(".element__image");
+
+//função
+images.forEach((image) => {
+  image.addEventListener("click", function (event) {
+    console.log("Clicou em algo!");
+    // Aqui você precisa verificar: o que foi clicado foi uma imagem?
+
+    //define a imagem
+    imageElement.src = event.target.src;
+    //define a texto
+    textElement.textContent = event.target.alt;
+    // Abrir o popup
+    openPopupImage(imagePopup);
+  });
+});
+
+//adiciona um evento (clicar no X)
+closeImage.addEventListener("click", function () {
+  //fecha o popup
+  closePopupImage(imagePopup);
+});
