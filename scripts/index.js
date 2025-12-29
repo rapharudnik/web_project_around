@@ -212,16 +212,15 @@ const images = document.querySelectorAll(".element__image");
 
 //função
 images.forEach((image) => {
-  image.addEventListener("click", function (event) {
-    console.log("Clicou em algo!");
-    // Aqui você precisa verificar: o que foi clicado foi uma imagem?
-
-    //define a imagem
-    imageElement.src = event.target.src;
-    //define a texto
-    textElement.textContent = event.target.alt;
-    // Abrir o popup
-    openPopupImage(imagePopup);
+  document.addEventListener("click", function (event) {
+    if (event.target.classList.contains("element__image")) {
+      //define a imagem
+      imageElement.src = event.target.src;
+      //define a texto
+      textElement.textContent = event.target.alt;
+      // Abrir o popup
+      openPopupImage(imagePopup);
+    }
   });
 });
 
