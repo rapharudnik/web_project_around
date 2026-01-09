@@ -97,6 +97,34 @@
   transition: background-color 0.3s ease;
 }
 
+.popup__input_type_error {
+  border-bottom: 1px solid #ff0000;
+}
+
+.popup__error_visible {
+  min-height: 14px;
+  font-size: 12px;
+  color: #ff0000;
+  margin-top: 5px;
+  display: block;
+  font-weight: 400;
+}
+
+.form__input-error_active {
+  visibility: visible;
+}
+
+.form__input-error {
+  visibility: hidden;
+}
+
+.popup__button_disabled {
+  background-color: #fff;
+  color: #c4c4c4;
+  border: 1px solid #c4c4c4;
+  cursor: default;
+}
+
 @media (max-width: 320px) {
   .form__content {
     margin-left: 19px;

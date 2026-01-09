@@ -152,7 +152,7 @@
               alt="icone de x"
             />
 
-            <form class="form">
+            <form class="form popup__form">
               <h2 class="popup__title">Editar perfíl</h2>
               <div class="popup__field">
                 <input
@@ -160,7 +160,11 @@
                   type="text"
                   id="form__input-name"
                   placeholder="nome"
+                  required
+                  minlength="2"
+                  maxlength="40"
                 />
+                <span class="popup__error" id="form__input-name-error"></span>
               </div>
               <hr class="popup__line" />
 
@@ -170,11 +174,20 @@
                   type="text"
                   id="form__input-function"
                   placeholder="sobre mim"
+                  required
+                  minlength="2"
+                  maxlength="200"
                 />
+                <span
+                  class="popup__error"
+                  id="form__input-function-error"
+                ></span>
               </div>
               <hr class="popup__line" />
 
-              <button class="popup__submit-button" type="submit">Salvar</button>
+              <button class="popup__submit-button popup__button" type="submit">
+                Salvar
+              </button>
             </form>
           </div>
         </div>
@@ -187,29 +200,39 @@
               alt="icone de x"
             />
 
-            <form class="form__newplace">
+            <form class="form__newplace popup__form">
               <h2 class="popup__title-newplace">Novo local</h2>
               <div class="popup__field-newplace">
                 <input
-                  class="popup__input-newplace"
+                  class="popup__input-newplace popup__input"
                   type="text"
                   id="form__input-title"
                   placeholder="Título"
+                  required
+                  minlength="2"
+                  maxlength="30"
                 />
+                <span class="popup__error" id="form__input-title-error"></span>
               </div>
               <hr class="popup__line-newplace" />
 
               <div class="popup__field-newplace">
                 <input
-                  class="popup__input-newplace"
+                  class="popup__input-newplace popup__input"
                   type="url"
+                  name="link"
                   id="form__input-image"
                   placeholder="Link de imagem"
+                  required
                 />
+                <span class="popup__error" id="form__input-image-error"></span>
               </div>
               <hr class="popup__line-newplace" />
 
-              <button class="popup__submit-button_newplace" type="submit">
+              <button
+                class="popup__submit-button_newplace popup__button"
+                type="submit"
+              >
                 Criar
               </button>
             </form>
@@ -223,7 +246,7 @@
               alt="icone de x"
             />
 
-            <img class="popup__image-photo" alt="" src="" />
+            <img class="popup__image-photo popup__form" alt="" src="" />
             <h3 class="popup__image-text"></h3>
           </div>
         </div>
@@ -231,5 +254,6 @@
       <footer class="footer">© 2024 Around The U.S.</footer>
     </div>
     <script src="./scripts/index.js"></script>
+    <script src="./scripts/validate.js"></script>
   </body>
 </html>

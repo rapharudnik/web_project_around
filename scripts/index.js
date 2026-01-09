@@ -229,3 +229,47 @@ closeImage.addEventListener("click", function () {
   //fecha o popup
   closePopupImage(imagePopup);
 });
+
+//seleciona a sobreposicao do popup
+const allPopups = document.querySelectorAll(
+  ".popup, .popup__newplace, .popup__image"
+);
+
+allPopups.forEach((popupContainer) => {
+  popupContainer.addEventListener("click", function (evt) {
+    // Se o clique foi diretamente no container (não no conteúdo)
+    if (evt.target === popupContainer) {
+      // Percorrer todas as classes do elemento
+      popupContainer.classList.forEach((className) => {
+        // Verificar se a classe termina com "opened"
+        if (className.endsWith("opened")) {
+          // Remover essa classe
+          popupContainer.classList.remove(className);
+          return;
+        }
+      });
+    }
+  });
+});
+
+//fechat popups clicando em esc
+document.addEventListener("keydown", function (evt) {
+  // Como verificar se a tecla pressionada foi Esc?
+  if (evt.key === "Escape") {
+    // 1. Pegar todos os popups
+    const allPopups = document.querySelectorAll(
+      ".popup, .popup__newplace, .popup__image"
+    );
+    allPopups.forEach((popupContainer) => {
+      popupContainer.classList.forEach((className) => {
+        // Verificar se a classe termina com "opened"
+        // 2. Para cada popup, verificar se tem classe "opened"
+        if (className.endsWith("opened")) {
+          // 3. Se tiver, remover essa classe
+          popupContainer.classList.remove(className);
+          return;
+        }
+      });
+    });
+  }
+});
