@@ -68,24 +68,33 @@ const setEventListeners = (formElement, config) => {
   //encontra o botão DESTE formulário
   const buttonElement = formElement.querySelector(config.submitButtonSelector);
 
+  function toggleButtonState(formElement, buttonElement) {
+    if (formElement.checkValidity()) {
+      console.log("botao habilitado", buttonElement);
+      // Formulário válido - HABILITAR botão
+      buttonElement.disabled = false; // Funcionalidade
+      buttonElement.classList.remove("popup__button_disabled"); // Visual
+    } else {
+      console.log("botao desabilitado", buttonElement);
+      // Formulário inválido - DESABILITAR botão
+      buttonElement.disabled = true; // Funcionalidade
+      buttonElement.classList.add("popup__button_disabled"); // Visual
+    }
+  }
+
   //percorre todos os inputs dos popups
   inputList.forEach((inputElement) => {
+    console.log("Formulário encontrado:", formElement); // Adicione esta linha
     // Aqui você adiciona o event listener
+    toggleButtonState(formElement, buttonElement);
     inputElement.addEventListener("input", () => {
       // chamar funcao para verificar se o botao esta habilitado ou nao
-      if (formElement.checkValidity()) {
-        // Formulário válido - HABILITAR botão
-        buttonElement.disabled = false; // Funcionalidade
-        buttonElement.classList.remove("popup__button_disabled"); // Visual
-      } else {
-        // Formulário inválido - DESABILITAR botão
-        buttonElement.disabled = true; // Funcionalidade
-        buttonElement.classList.add("popup__button_disabled"); // Visual
-      }
+      toggleButtonState(formElement, buttonElement);
     });
   });
   // Para cada campo, adiciona um event listener
   inputList.forEach((inputElement) => {
+    isValid(formElement, inputElement, config);
     inputElement.addEventListener("input", function () {
       // Chama a função isValid() sempre que o usuário digitar algo
       isValid(formElement, inputElement, config);
