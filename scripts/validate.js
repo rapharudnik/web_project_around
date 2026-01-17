@@ -8,6 +8,13 @@ const showInputError = (formElement, inputElement, errorMessage, config) => {
     // Define a mensagem de erro e torna o elemento visível
     errorElement.textContent = errorMessage;
     errorElement.classList.add(config.errorClass);
+
+    const field = inputElement.closest(".popup__field");
+    const line = field.querySelector(".popup__line");
+
+    if (line) {
+      line.classList.add("popup__line_error");
+    }
   }
 };
 
@@ -25,6 +32,13 @@ const hideInputError = (formElement, inputElement, config) => {
 
   //remove a mensagem de erro
   errorElement.textContent = "";
+
+  const field = inputElement.closest(".popup__field");
+  const line = field.querySelector(".popup__line");
+
+  if (line) {
+    line.classList.remove("popup__line_error");
+  }
 };
 
 //verifica se o campo é válido e decide qual das outras duas chamar
@@ -38,6 +52,7 @@ const isValid = (formElement, inputElement, config) => {
 
   //verificando se os campos estão preenchidos corretamente
   if (!inputElement.validity.valid) {
+    console.log("entrou no if");
     // Se o campo NÃO for válido, mostra o erro
     showInputError(
       formElement,

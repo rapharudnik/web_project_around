@@ -56,6 +56,7 @@
 }
 
 .form__field {
+  position: relative;
 }
 
 .popup__input {
@@ -79,6 +80,10 @@
   max-width: 358px;
 }
 
+.popup__line_error {
+  border-bottom: 1px solid #ff0000;
+}
+
 .popup__submit-button {
   max-width: 358px;
   height: 50px;
@@ -98,6 +103,7 @@
 }
 
 .popup__input_type_error {
+  color: #ff0000;
 }
 
 .popup__error_visible {
@@ -107,10 +113,13 @@
   margin-top: 5px;
   display: block;
   font-weight: 400;
+  position: absolute;
+  left: 36px;
 }
 
 .form__input-error_active {
   visibility: visible;
+  border-bottom: 1px solid #ff0000;
 }
 
 .form__input-error {

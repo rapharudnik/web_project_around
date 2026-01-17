@@ -6,18 +6,27 @@ const closeButton = document.querySelector(".popup__close-icon");
 // Função para abrir o popup
 function openPopup() {
   popup.classList.add("popup_opened");
+  addEscapeListener();
 }
 
 // Função para fechar o popup
 function closePopup() {
   popup.classList.remove("popup_opened");
+  removeEscapeListener();
 }
 
 // Quando clicar no botão editar, abre o popup
 editButton.addEventListener("click", openPopup);
+{
+  popup.classList.add("popup_opened");
+  addEscapeListener();
+}
 
 // Quando clicar no botão fechar, fecha o popup
 closeButton.addEventListener("click", closePopup);
+{
+  removeEscapeListener();
+}
 
 const profilename = document.querySelector(".profile__name");
 const profilefunction = document.querySelector(".profile__info-function");
@@ -39,11 +48,11 @@ function handleProfileFormSubmit(evt) {
   let nameInput = document.querySelector("#form__input-name");
   let functionInput = document.querySelector("#form__input-function");
 
-  let newName = nameInput.value;
-  let newFunction = functionInput.value;
+  const newName = nameInput.value;
+  const newFunction = functionInput.value;
 
-  let profileName = document.querySelector(".profile__name");
-  let profileFunction = document.querySelector(".profile__info-function");
+  const profileName = document.querySelector(".profile__name");
+  const profileFunction = document.querySelector(".profile__info-function");
 
   profileName.textContent = newName;
   profileFunction.textContent = newFunction;
@@ -90,18 +99,26 @@ const closeButtonNewplace = document.querySelector(
 //função abrir popup
 function openPopupNewplace() {
   popupNewplace.classList.add("popup__newplace_opened");
+  addEscapeListener();
 }
 
 // Função para fechar o popup
 function closePopupNewplace() {
   popupNewplace.classList.remove("popup__newplace_opened");
+  removeEscapeListener();
 }
 
 // Quando clicar no botão add, abre o popup
 addPlace.addEventListener("click", openPopupNewplace);
+{
+  addEscapeListener();
+}
 
 // Quando clicar no botão fechar, fecha o popup
 closeButtonNewplace.addEventListener("click", closePopupNewplace);
+{
+  removeEscapeListener();
+}
 
 //adicionando um cartão personalizado
 
@@ -192,11 +209,13 @@ containers.addEventListener("click", (event) => {
 //função abrir popup
 function openPopupImage(popup) {
   popup.classList.add("popup__image_opened");
+  addEscapeListener();
 }
 
 // Função para fechar o popup
 function closePopupImage(popup) {
   popup.classList.remove("popup__image_opened");
+  removeEscapeListener();
 }
 
 // Selecionar o popup de imagem
@@ -252,8 +271,18 @@ allPopups.forEach((popupContainer) => {
   });
 });
 
+// Função para adicionar o listener
+function addEscapeListener() {
+  document.addEventListener("keydown", handleEscapeKey);
+}
+
+// Função para remover o listener
+function removeEscapeListener() {
+  document.removeEventListener("keydown", handleEscapeKey);
+}
+
 //fechat popups clicando em esc
-document.addEventListener("keydown", function (evt) {
+function handleEscapeKey(evt) {
   // Como verificar se a tecla pressionada foi Esc?
   if (evt.key === "Escape") {
     // 1. Pegar todos os popups
@@ -272,4 +301,4 @@ document.addEventListener("keydown", function (evt) {
       });
     });
   }
-});
+}
