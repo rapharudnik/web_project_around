@@ -6,5 +6,7 @@ Manipulação do DOM com querySelector() e addEventListener()
 Eventos de formulário (submit, click)
 Modais/Pop-ups com abertura e fechamento dinâmicos
 Atualização de conteúdo em tempo real
+Card criados dinâmicamente através de classe
+Validação do formulário através de classe.
 
 https://rapharudnik.github.io/web_project_around/

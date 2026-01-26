@@ -10,7 +10,7 @@ export default class Card {
     // método privado para pegar o template
     const cardElement = document
       .querySelector(this._cardSelector)
-      .content.querySelector(".card")
+      .content.querySelector(".element")
       .cloneNode(true);
 
     return cardElement;
@@ -53,7 +53,7 @@ export default class Card {
     //preencher a imagem
     const imageElement = this._element.querySelector(".element__image");
     imageElement.src = this._image;
-    imageElement.alt = this._text;
+    imageElement.alt = this._name;
   }
 
   generateCard() {

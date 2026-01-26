@@ -1,4 +1,5 @@
 import Card from "./Card.js";
+import FormValidator from "./FormValidator.js";
 
 // Selecionar os elementos principais
 const editButton = document.querySelector(".profile__info-edit-button");
@@ -56,6 +57,10 @@ function handleProfileFormSubmit(evt) {
 
 formElement.addEventListener("submit", handleProfileFormSubmit);
 
+// ✅ Selecionar onde os cartões ficam
+const cardsContainer = document.querySelector(".elements");
+console.log("cardsContainer:", cardsContainer);
+
 //array initialCards com os dados dos 6 cartões
 const initialCards = [
   {
@@ -96,9 +101,6 @@ initialCards.forEach((cardData) => {
 //criando constantes para os inputs (imagem e título)
 const titleInput = document.querySelector("#form__input-title");
 const imageInput = document.querySelector("#form__input-image");
-
-// ✅ Selecionar onde os cartões ficam
-const cardsContainer = document.querySelector(".elements");
 
 //Criar uma função para adicionar o novo cartão
 function addNewCard(name, link) {
