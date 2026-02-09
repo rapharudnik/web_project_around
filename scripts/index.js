@@ -106,6 +106,21 @@ const imageInput = document.querySelector("#form__input-image");
 const addNewCardForm = document.querySelector(".popup__newplace");
 const addCardForm = addNewCardForm.querySelector(".form__newplace"); // ← formulário dentro do popup
 
+//função para adicionar novo cartão
+function addNewCard(title, imageUrl) {
+  const newCard = new Card(
+    {
+      name: title,
+      link: imageUrl,
+    },
+    "#card-template"
+  );
+
+  const cardElement = newCard.generateCard();
+  const cardContainer = document.querySelector(".elements");
+  cardContainer.prepend(cardElement);
+}
+
 // Adicionar event listener
 addCardForm.addEventListener("submit", function (evt) {
   evt.preventDefault(); // ← Impede o envio padrão do formulário
