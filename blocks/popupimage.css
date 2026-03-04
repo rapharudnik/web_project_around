@@ -1,21 +1,19 @@
-.popup__image {
+.popup_type_image {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.8);
-  display: flex;
   justify-content: center;
   align-items: center;
-  opacity: 0;
-  visibility: hidden;
+
   transition: 0.3s;
 }
 
-.popup__image_opened {
+.popup_type_image_opened {
   opacity: 1;
   visibility: visible;
 }
 
-.popup__image-content {
+.popup__content {
   position: relative;
   max-width: 75vw;
   max-height: 75vh;
@@ -24,21 +22,21 @@
   align-items: center;
 }
 
-.popup__image-photo {
+.popup__image {
   width: 75vw;
   height: 75vh;
   border-radius: 8px;
   object-fit: cover;
 }
 
-.popup__image-text {
+.popup__caption {
   color: white;
   font-size: 18px;
   margin-bottom: 12px;
   text-align: center;
 }
 
-.popup__close-icon_image {
+.popup__close {
   position: absolute;
   top: -35px;
   right: -35px;
@@ -47,7 +45,7 @@
   cursor: pointer;
 }
 
-.popup__close-icon_image:hover {
+.popup__close:hover {
   cursor: pointer;
   opacity: 0.6;
 }

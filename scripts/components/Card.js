@@ -1,8 +1,9 @@
 export default class Card {
-  constructor(data, cardSelector) {
+  constructor(data, cardSelector, handleCardClick) {
     this._name = data.name;
     this._image = data.link;
     this._cardSelector = cardSelector;
+    this._handleCardClick = handleCardClick;
   }
 
   _getTemplate() {
@@ -24,26 +25,26 @@ export default class Card {
     this._element.remove();
   }
 
-  _handleImageClick() {
-    openPopupImage();
-  }
-
   _setEventListeners() {
     // método privado para adicionar eventos
     //Selecionar botão de curtir
     this._likeButton = this._element.querySelector(".element__like-button");
     //adiciona evento de curtir
-    this._likeButton.addEventListener("click", this._handleLikeClick);
+    this._likeButton.addEventListener("click", () => this._handleLikeClick());
 
     // Selecionar o botão para excluir o card
     this._deleteButton = this._element.querySelector(".element__trash-button");
     //adiciona evento de excluir card
-    this._deleteButton.addEventListener("click", this._handleDeleteClick);
+    this._deleteButton.addEventListener("click", () =>
+      this._handleDeleteClick(),
+    );
 
     // Selecionar a imagem do card
     this._cardImage = this._element.querySelector(".element__image");
-    //seleciona imagem
-    this._cardImage.addEventListener("click", this._handleImageClick);
+
+    this._cardImage.addEventListener("click", () => {
+      this._handleCardClick(this._image, this._name);
+    });
   }
 
   _setCardData() {
