@@ -1,4 +1,4 @@
-import Card from "../scripts/components/Card.js";
+import Card from "../components";
 import Section from "../scripts/components/Section.js";
 import PopupWithImage from "../scripts/components/PopupWithImage.js";
 import PopupWithForm from "../scripts/components/PopupWithForm.js";
