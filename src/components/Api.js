@@ -31,9 +31,6 @@ class Api {
         return Promise.reject(`Error: ${res.status}`);
       })
       .then((data) => {
-        console.log("Resposta completa da API:", data);
-        console.log("É um array?", Array.isArray(data));
-        console.log("Comprimento:", data.length);
         return data;
       });
   }

@@ -18,7 +18,6 @@ export default class Card {
   }
 
   _getTemplate() {
-    console.log("Seletor usado:", this._cardSelector);
     // método privado para pegar o template
     const cardElement = document
       .querySelector(this._cardSelector)
@@ -46,7 +45,6 @@ export default class Card {
   }
 
   _setEventListeners() {
-    console.log("_setEventListeners foi chamado!");
     // método privado para adicionar eventos
     //Selecionar botão de curtir
     this._likeButton = this._element.querySelector(".element__like-button");

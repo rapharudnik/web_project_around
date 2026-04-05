@@ -49,7 +49,6 @@ api
 //instancia de popupWithConfirmation
 const confirmationPopup = new PopupWithConfirmation(".popup_type_confirmation");
 confirmationPopup.setEventListeners();
-console.log("depois do confirmationPopup");
 
 //funcao callback para like
 function handleLikeClick(cardId, isLiked) {
@@ -137,9 +136,6 @@ editButton.addEventListener("click", () => {
   profileEditPopup.open();
 });
 
-// Ativa os event listeners
-profileEditPopup.setEventListeners();
-
 // Selecionar os elementos principais
 const addPlace = document.querySelector(".profile__add-button");
 
@@ -223,13 +219,12 @@ editAvatarPopup.setEventListeners();
 //instância para cada formulário
 // Selecionar cada formulário específico
 const profileForm = document.querySelector(".popup__profile .popup__form");
-console.log(profileForm);
+
 const newPlaceForm = document.querySelector(".popup__newplace .popup__form");
-console.log(newPlaceForm);
+
 const editAvatarForm = document.querySelector(
   ".popup_type_edit-avatar .popup__form",
 );
-console.log(editAvatarForm);
 
 // Criar uma instância para cada formulário
 const profileValidator = new FormValidator(config, profileForm);
